@@ -1,15 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="" />
+    <!-- <link rel="icon" type="image/svg+xml" href="" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Styles/style.css" />
+    <script src="https://kit.fontawesome.com/21d04b13fd.js" crossorigin="anonymous"></script>
     <title>LoquiOculis</title>
   </head>
+
   <body>
-    <div id="app">
-      <h1>LoquiOculis</h1>
+    <script src="https://cdn.jsdelivr.net/npm/fuzzyset@1.0.7/dist/fuzzyset.min.js"></script>
+    <!-- <video id="webcam" autoplay playsinline width="200" height="200"></video> -->
+
+    <div id="teclado-virtual">
+      <textarea id="caixa-mensagem"></textarea>
+      <div id="sugestoes" class="linha"></div>
+      <div id="teclas">
+        <div id="linha-1" class="linha">
+          <div id="A" class="tecla letra">A</div>
+          <div id="E" class="tecla letra">E</div>
+          <div id="O" class="tecla letra">O</div>
+          <div id="S" class="tecla letra">S</div>
+          <div id="R" class="tecla letra">R</div>
+          <div id="delete" class="tecla delete">
+            <i class="fa-solid fa-delete-left"></i>
+          </div>
+        </div>
+        <div id="linha-2" class="linha">
+          <div id="I" class="tecla letra">I</div>
+          <div id="D" class="tecla letra">D</div>
+          <div id="N" class="tecla letra">N</div>
+          <div id="M" class="tecla letra">M</div>
+          <div id="U" class="tecla letra">U</div>
+          <div id="ouvir" class="tecla ouvir">
+            <i class="fa-solid fa-volume-high"></i>
+          </div>
+        </div>
+        <div id="linha-3" class="linha">
+          <div id="T" class="tecla letra">T</div>
+          <div id="C" class="tecla letra">C</div>
+          <div id="L" class="tecla letra">L</div>
+          <div id="P" class="tecla letra">P</div>
+          <div id="V" class="tecla letra">V</div>
+          <div id="espaco" class="tecla espaco">ESPAÇO</div>
+        </div>
+        <div id="linha-4" class="linha">
+          <div id="H" class="tecla letra">H</div>
+          <div id="G" class="tecla letra">G</div>
+          <div id="B" class="tecla letra">B</div>
+          <div id="QU" class="tecla letra">QU</div>
+          <div id="F" class="tecla letra">F</div>
+          <div id="deletar-texto" class="tecla deletar-texto">
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+        </div>
+        <div id="linha-5" class="linha">
+          <div id="Z" class="tecla letra">Z</div>
+          <div id="J" class="tecla letra">J</div>
+          <div id="X" class="tecla letra">X</div>
+          <div id="K" class="tecla letra">K</div>
+          <div id="Y" class="tecla letra">Y</div>
+          <div id="W" class="tecla letra">W</div>
+        </div>
+      </div>
     </div>
-    <script type="module" src="/main.js"></script>
+
+    <button class="meu-botao" id="botao">Clique Aqui</button>
+    <script type="module" src="./Scripts/main.js"></script>
   </body>
 </html>
