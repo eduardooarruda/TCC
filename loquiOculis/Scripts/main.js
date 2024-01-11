@@ -1,5 +1,5 @@
 // import './style.css'
-import { listaPalavras } from './listaPalavras';
+import { listaPalavras } from './corpus';
 
 const caixaMensagem = document.querySelector("#caixa-mensagem");
 
