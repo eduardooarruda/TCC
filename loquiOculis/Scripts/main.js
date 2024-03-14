@@ -3,7 +3,6 @@ import { listaPalavras } from './corpus';
 
 const caixaMensagem = document.querySelector("#caixa-mensagem");
 
-
 function scrollParaBaixo() {
     caixaMensagem.scrollTop = caixaMensagem.scrollHeight;
 }
@@ -75,13 +74,13 @@ function adicionarLetraCaixaMensagem(letra) {
     sugestaoPalavras(listaPalavras);
 }
 
-const teclas_letras = document.querySelectorAll(".letra");
+// const teclas_letras = document.querySelectorAll(".letra");
 
-teclas_letras.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        adicionarLetraCaixaMensagem(btn.innerText);
-    });
-});
+// teclas_letras.forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//         adicionarLetraCaixaMensagem(btn.innerText);
+//     });
+// });
 
 function detetarCaractere() {
     const texto = caixaMensagem.value;
@@ -92,31 +91,31 @@ function detetarCaractere() {
 
     sugestaoPalavras(listaPalavras);
 }
-const tecla_delete = document.querySelector("#delete");
+// const tecla_delete = document.querySelector("#delete");
 
-tecla_delete.addEventListener("click", () => {
-    detetarCaractere();
-});
+// tecla_delete.addEventListener("click", () => {
+//     detetarCaractere();
+// });
 
 function espacarCaracteres() {
     caixaMensagem.value += " ";
 }
 
-const tecla_espaco = document.querySelector("#espaco");
+// const tecla_espaco = document.querySelector("#espaco");
 
-tecla_espaco.addEventListener("click", () => {
-    espacarCaracteres();
-});
+// tecla_espaco.addEventListener("click", () => {
+//     espacarCaracteres();
+// });
 
 function deletarTextoCaixaMensagem() {
     caixaMensagem.value = "";
     apagarSugestoes();
 }
-const tecla_deletar_todo_texto = document.querySelector("#deletar-texto");
+// const tecla_deletar_todo_texto = document.querySelector("#deletar-texto");
 
-tecla_deletar_todo_texto.addEventListener("click", () => {
-    deletarTextoCaixaMensagem();
-});
+// tecla_deletar_todo_texto.addEventListener("click", () => {
+//     deletarTextoCaixaMensagem();
+// });
 
 function ouvirTexto() {
     if ("speechSynthesis" in window) {
@@ -129,11 +128,11 @@ function ouvirTexto() {
         alert("A API de síntese de fala não é suportada neste navegador.");
     }
 }
-const tecla_ouvir = document.querySelector("#ouvir");
+// const tecla_ouvir = document.querySelector("#ouvir");
 
-tecla_ouvir.addEventListener("click", () => {
-    ouvirTexto();
-});
+// tecla_ouvir.addEventListener("click", () => {
+//     ouvirTexto();
+// });
 
 //----------------------------------------------------------------------------------------
 let linha;
@@ -219,13 +218,13 @@ function varredura() {
     intervalIds.push(intervalIdLinha);
 }
 
+const audio = document.getElementById('som');
+
 varredura();
 
-const botaoVarredura = document.getElementById("botao");
-
-botaoVarredura.addEventListener("click", () => {
+document.addEventListener('click', function(event) {
     stopAllIntervals();
-
+    audio.play();
     const existeVarreduraLetras = document.querySelector(".varredura-letra");
 
     const existeVarreduraLinhas = document.querySelector(".varredura");
@@ -256,3 +255,6 @@ botaoVarredura.addEventListener("click", () => {
         varredura();
     }
 });
+
+
+

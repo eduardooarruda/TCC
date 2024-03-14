@@ -1,0 +1,138 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+body, html {
+    height: 100vh;
+    margin: 0;
+}
+
+
+
+#teclas {
+    display: flex;
+    flex-direction: column;
+    height: 72vh;
+}
+
+.linha {
+    display: flex;
+    flex: 1;
+    margin: 1px;
+}
+
+#A,
+#E,
+#O,
+#S,
+#R,
+#delete{
+    background-color: blueviolet;
+}
+
+#I,
+#D,
+#N,
+#M,
+#U,
+#ouvir {
+    background-color: brown;
+}
+
+#T,
+#C,
+#L,
+#P,
+#V,
+#espaco {
+    background-color: darkgoldenrod;
+}
+
+#H,
+#G,
+#B,
+#QU,
+#F,
+#deletar-texto{
+    background-color:blue;
+}
+
+#Z,
+#J,
+#X,
+#K,
+#Y,
+#W{
+    background-color: forestgreen;
+}
+
+.tecla {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; /* Adicione estilo de borda conforme necessário */
+}
+
+
+/* Outras estilizações conforme necessário */
+
+.letra,
+ #delete,
+#espaco,
+#ouvir,
+#deletar-texto {
+    /* width: 16%;
+    height: 100%;  */
+    /* background-color: rgb(104, 104, 255); */
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    /* margin: 0.3rem; */
+    margin: 1px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: white;
+}  
+
+.palavra {
+    /* width: 16%; */
+    /* height: 10vh; */
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: black;
+}
+
+#caixa-mensagem {
+    height: 10%;
+    width: 100%;
+    border: 2px solid rgb(104, 104, 255);
+    border-radius: 5px;
+    /* margin-bottom: 10px; */
+    font-size: 1.8rem;;
+}
+
+.varredura {
+    border: 4px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.varredura-letra {
+    border: 4px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    /*     margin-top: 10px;
+    margin-bottom: 10px; */
+}
+

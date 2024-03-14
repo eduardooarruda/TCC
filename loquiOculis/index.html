@@ -2,9 +2,9 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="" /> -->
+    <link rel="icon" type="image/svg+xml" href="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Styles/style.css" />
+    <link rel="stylesheet" href="./Styles/style2.css" />
     <script src="https://kit.fontawesome.com/21d04b13fd.js" crossorigin="anonymous"></script>
     <title>LoquiOculis</title>
   </head>
@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/fuzzyset@1.0.7/dist/fuzzyset.min.js"></script>
     <!-- <video id="webcam" autoplay playsinline width="200" height="200"></video> -->
 
-    <div id="teclado-virtual">
+    <!-- <div id="teclado-virtual"> -->
       <textarea id="caixa-mensagem"></textarea>
       <div id="sugestoes" class="linha"></div>
       <div id="teclas">
@@ -64,9 +64,12 @@
           <div id="W" class="tecla letra">W</div>
         </div>
       </div>
-    </div>
+    
+      <audio id="som">
+        <source src="\media\mouse-click.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 
-    <button class="meu-botao" id="botao">Clique Aqui</button>
     <script type="module" src="./Scripts/main.js"></script>
   </body>
 </html>

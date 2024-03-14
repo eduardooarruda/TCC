@@ -2,12 +2,13 @@
     font-family: "Poppins", sans-serif;
 }
 
-.linha,
-#sugestoes {
-    display: flex;
-    justify-content: center;
-    height: 50px;
+body, html {
+    height: 100vh; /* 100% da altura da viewport */
+    margin: 0; /* Remover margens padrão */
+    overflow: hidden
 }
+
+
 
 .tecla {
     /*     width: 16%;
@@ -22,15 +23,33 @@
     justify-content: center;
     border-radius: 0.5rem;
     color: white; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
+.linha {
+    display: flex;
+    flex: 1;
+}
+
+
+.tecla {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black; /* Adicione estilo de borda conforme necessário */
+}
+
+
 .letra,
-#delete,
+ #delete,
 #espaco,
 #ouvir,
 #deletar-texto {
     width: 16%;
-    height: 30px;
+    height: 100%; 
     background-color: rgb(104, 104, 255);
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -41,7 +60,8 @@
     justify-content: center;
     border-radius: 0.5rem;
     color: white;
-}
+}  
+
 .palavra {
     width: 16%;
     height: 30px;
@@ -55,9 +75,10 @@
     border-radius: 0.5rem;
     color: black;
 }
+
 #caixa-mensagem {
     height: 35px;
-    width: 98%;
+    width: 100%;
     border: 2px solid rgb(104, 104, 255);
     border-radius: 5px;
     margin-bottom: 10px;
