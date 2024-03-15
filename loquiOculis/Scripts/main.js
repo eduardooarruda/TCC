@@ -139,6 +139,20 @@ let linha;
 let tecla;
 let intervalIds = [];
 
+function adicionarOpacidadeLinha(linhas) {
+    for (let l of linhas) {
+        if (!(l===linha)) {
+            l.classList.add("opacidade");
+        }
+    }
+}
+
+function removeOpacidadeLinha(linhas) {
+    for (let l of linhas) {
+        l.classList.remove("opacidade");
+    }
+}
+
 function stopAllIntervals() {
     intervalIds.forEach((intervalId) => {
         clearInterval(intervalId);
@@ -159,7 +173,6 @@ function adicionarRemoverClasse(elemento, classe, adicionar, delay) {
 
 function varreduraLetras(linha) {
     const teclas = linha.querySelectorAll(".tecla");
-
     if (teclas.length === 0) {
         stopAllIntervals();
         varredura();
@@ -181,8 +194,8 @@ function varreduraLetras(linha) {
         }
 
         if (tecla === teclas[teclas.length - 1]) {
-            clearInterval(intervalIdLetras);
-            intervalIdLinha = varredura();
+            clearInterval(intervalIdLetras);  
+            varredura();
         }
     }, 3000);
 
@@ -191,7 +204,7 @@ function varreduraLetras(linha) {
 
 function varredura() {
     const linhas = document.querySelectorAll(".linha");
-
+    removeOpacidadeLinha(linhas);
     let indexLinha = 0;
 
     let intervalIdLinha = setInterval(() => {
@@ -218,6 +231,8 @@ function varredura() {
     intervalIds.push(intervalIdLinha);
 }
 
+
+
 const audio = document.getElementById('som');
 
 varredura();
@@ -228,6 +243,10 @@ document.addEventListener('click', function(event) {
     const existeVarreduraLetras = document.querySelector(".varredura-letra");
 
     const existeVarreduraLinhas = document.querySelector(".varredura");
+    
+    const linhas = document.querySelectorAll(".linha");
+
+    adicionarOpacidadeLinha(linhas);
 
     if (existeVarreduraLinhas) {
         varreduraLetras(linha);
@@ -250,8 +269,10 @@ document.addEventListener('click', function(event) {
             scrollParaBaixo();
             apagarSugestoes();
         }
+
         varredura();
     } else {
+        
         varredura();
     }
 });

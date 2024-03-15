@@ -27,7 +27,7 @@ body, html {
 #S,
 #R,
 #delete{
-    background-color: blueviolet;
+    background-color: indigo;
 }
 
 #I,
@@ -118,6 +118,10 @@ body, html {
     border-radius: 5px;
     /* margin-bottom: 10px; */
     font-size: 1.8rem;;
+}
+
+.opacidade {
+    opacity: 0.5;
 }
 
 .varredura {
