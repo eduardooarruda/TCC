@@ -250,7 +250,16 @@ function varredura() {
     intervalIds.push(intervalIdLinha);
 }
 
-
+function atualizarConteudo() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("teclas").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "tecladoAlternativo.html", false);
+    xhttp.send();
+}
 
 varredura();
 
@@ -258,6 +267,7 @@ document.addEventListener('click', function(event) {
     stopAllIntervals();
     const audio = document.getElementById('som');
     audio.play();
+
     const existeVarreduraLetras = document.querySelector(".varredura-letra");
 
     const existeVarreduraLinhas = document.querySelector(".varredura");
@@ -286,6 +296,8 @@ document.addEventListener('click', function(event) {
             adicionarPalavraCaixaMessagem(palavras, tecla.innerText);
             scrollParaBaixo();
             apagarSugestoes();
+        } else if (tecla.classList.contains("numerosPontuacoes")) {
+            atualizarConteudo();
         }
 
         varredura();
@@ -293,7 +305,6 @@ document.addEventListener('click', function(event) {
     } else {
         
         varredura();
-       
     }
 });
 
