@@ -29,6 +29,8 @@ function adicionarPalavraCaixaMessagem(palavras, palavra) {
     }
 }
 
+
+
 function sugestaoPalavras(listaPalavras, quantidade = 4) {
     apagarSugestoes();
 
@@ -49,7 +51,22 @@ function sugestaoPalavras(listaPalavras, quantidade = 4) {
         return divElement;
     };
 
+    // const criarTeclaOuvir = () => {
+    //     const divOuvir = document.createElement('div');
+    //     divOuvir.id = 'ouvir';
+    //     divOuvir.classList.add('tecla', 'ouvir');
+
+    //     const iconVolume = document.createElement('i');
+    //     iconVolume.classList.add('fa-solid', 'fa-volume-high');
+
+    //     divOuvir.appendChild(iconVolume);
+    //     return divOuvir;
+
+    // }
+
     if (resultados && resultados.length > 0) {
+
+        // campoSugestoes.appendChild(criarTeclaOuvir());
         const palavrasSemelhantes = resultados
             .slice(0, quantidade)
             .map((resultado) => resultado[1]);
@@ -57,12 +74,12 @@ function sugestaoPalavras(listaPalavras, quantidade = 4) {
         for (let palavra of palavrasSemelhantes) {
             let palavraDiv = criarDiv(palavra);
 
-            palavraDiv.addEventListener("click", () => {
-                apagarUltimaPalavra(palavras);
-                adicionarPalavraCaixaMessagem(palavras, palavraDiv.innerText);
-                scrollParaBaixo();
-                apagarSugestoes();
-            });
+            // palavraDiv.addEventListener("click", () => {
+            //     apagarUltimaPalavra(palavras);
+            //     adicionarPalavraCaixaMessagem(palavras, palavraDiv.innerText);
+            //     scrollParaBaixo();
+            //     apagarSugestoes();
+            // });
             campoSugestoes.appendChild(palavraDiv);
         }
     }
@@ -173,6 +190,7 @@ function adicionarRemoverClasse(elemento, classe, adicionar, delay) {
 
 function varreduraLetras(linha) {
     const teclas = linha.querySelectorAll(".tecla");
+    
     if (teclas.length === 0) {
         stopAllIntervals();
         varredura();
@@ -205,6 +223,7 @@ function varreduraLetras(linha) {
 function varredura() {
     const linhas = document.querySelectorAll(".linha");
     removeOpacidadeLinha(linhas);
+
     let indexLinha = 0;
 
     let intervalIdLinha = setInterval(() => {
@@ -227,18 +246,17 @@ function varredura() {
             indexLinha = 0;
         }
     }, 3000);
-
+    
     intervalIds.push(intervalIdLinha);
 }
 
 
 
-const audio = document.getElementById('som');
-
 varredura();
 
 document.addEventListener('click', function(event) {
     stopAllIntervals();
+    const audio = document.getElementById('som');
     audio.play();
     const existeVarreduraLetras = document.querySelector(".varredura-letra");
 
@@ -271,9 +289,11 @@ document.addEventListener('click', function(event) {
         }
 
         varredura();
+        
     } else {
         
         varredura();
+       
     }
 });
 
