@@ -21,49 +21,28 @@ body, html {
     margin: 1px;
 }
 
-#A,
-#E,
-#O,
-#S,
-#R,
-#delete{
+.tecla-linha-1{
     background-color: indigo;
 }
 
-#I,
-#D,
-#N,
-#M,
-#U,
-#ouvir {
+.tecla-linha-2{
     background-color: brown;
 }
 
-#T,
-#C,
-#L,
-#P,
-#V,
-#espaco {
+.tecla-linha-3{
     background-color: darkgoldenrod;
 }
 
-#H,
-#G,
-#B,
-#QU,
-#F,
-#deletar-texto{
+.tecla-linha-4{
     background-color:blue;
 }
 
-#Z,
-#J,
-#X,
-#K,
-#Y,
-#W{
+.tecla-linha-5{
     background-color: forestgreen;
+}
+
+#numPont, #letras{
+    background-color: saddlebrown
 }
 
 .tecla {
@@ -78,7 +57,9 @@ body, html {
 /* Outras estilizações conforme necessário */
 
 .letra,
- #delete,
+#letras,
+#numPont,
+#delete,
 #espaco,
 #ouvir,
 #deletar-texto {
@@ -113,7 +94,7 @@ body, html {
 
 #caixa-mensagem {
     height: 10%;
-    width: 100%;
+    width: 99%;
     border: 2px solid rgb(104, 104, 255);
     border-radius: 5px;
     /* margin-bottom: 10px; */

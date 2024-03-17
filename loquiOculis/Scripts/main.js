@@ -86,7 +86,11 @@ function sugestaoPalavras(listaPalavras, quantidade = 4) {
 }
 
 function adicionarLetraCaixaMensagem(letra) {
-    caixaMensagem.value += letra;
+    if (letra === '.' || letra === ',' || letra === ';' || letra === "!" || letra === "?") {
+        caixaMensagem.value += letra + ' ';
+    } else {
+        caixaMensagem.value += letra;
+    }
     scrollParaBaixo();
     sugestaoPalavras(listaPalavras);
 }
@@ -250,7 +254,7 @@ function varredura() {
     intervalIds.push(intervalIdLinha);
 }
 
-function atualizarConteudo() {
+function atualizarConteudoTecladoAlternativo() {
     const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -258,6 +262,21 @@ function atualizarConteudo() {
         }
     };
     xhttp.open("GET", "tecladoAlternativo.html", false);
+    xhttp.send();
+}
+
+function atualizarConteudoTecladoPrincipal() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = this.responseText;
+            
+            const teclasConteudo = tempDiv.querySelector('#teclas').innerHTML;
+            document.getElementById("teclas").innerHTML = teclasConteudo;
+        }
+    };
+    xhttp.open("GET", "index.html", false);
     xhttp.send();
 }
 
@@ -296,8 +315,10 @@ document.addEventListener('click', function(event) {
             adicionarPalavraCaixaMessagem(palavras, tecla.innerText);
             scrollParaBaixo();
             apagarSugestoes();
-        } else if (tecla.classList.contains("numerosPontuacoes")) {
-            atualizarConteudo();
+        } else if (tecla.classList.contains("tecladoAlternativo")) {
+            atualizarConteudoTecladoAlternativo();
+        } else if (tecla.classList.contains("tecladoPrincipal")) {
+            atualizarConteudoTecladoPrincipal();
         }
 
         varredura();
