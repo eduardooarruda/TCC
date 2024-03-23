@@ -27,6 +27,36 @@ function adicionarRemoverClasse(elemento, classe, adicionar, delay) {
 }
 
 
+// function varredura() {
+//     const mensagens = document.querySelectorAll(".mensagem");
+//     // removeOpacidade(mensagens);
+
+//     let indexMensagem = 0;
+
+//     let intervalIdMensagem = setInterval(() => {
+//         // const campoSugestoes = document.querySelector("#sugestoes");
+//         // const palvrasCampoSugestao = campoSugestoes.childNodes;
+
+//         // if (palvrasCampoSugestao.length === 0 && indexLinha === 0) {
+//         //     indexLinha++;
+//         // }
+
+//         elementoSelecionado = mensagens[indexMensagem];
+
+//         if (elementoSelecionado) {
+//             adicionarRemoverClasse(elementoSelecionado, "varredura-mensagem", true, 0);
+
+//             adicionarRemoverClasse(elementoSelecionado, "varredura-mensagem", false, 2500);
+
+//             indexMensagem++;
+//         } else {
+//             indexMensagem = 0;
+//         }
+//     }, 3000);
+    
+//     intervalIds.push(intervalIdMensagem);
+// }
+
 function varreduraMensagens(linha) {
     const mensagens = linha.querySelectorAll(".mensagem");
     
@@ -41,9 +71,9 @@ function varreduraMensagens(linha) {
     let mensagem = mensagens[indexLetra];
 
         if (mensagem) {
-            adicionarRemoverClasse(mensagem, "varredura-mensagem", true, 0);
+            adicionarRemoverClasse(mensagem, "varredura-letra", true, 0);
 
-            adicionarRemoverClasse(mensagem, "varredura-mensagem", false, 2500);
+            adicionarRemoverClasse(mensagem, "varredura-letra", false, 2500);
 
             indexLetra++;
         } else {
@@ -60,31 +90,27 @@ function varreduraMensagens(linha) {
 }
 
 function varredura() {
-    const mensagens = document.querySelectorAll(".linha");
+    const linhas = document.querySelectorAll(".linha");
+    removeOpacidadeLinha(linhas);
 
-    let indexMensagem = 0;
+    let indexLinha = 0;
 
-    let intervalIdMensagem = setInterval(() => {
+    let intervalIdLinha = setInterval(() => {
+        
+        let linha = linhas[indexLinha];
 
-        elementoSelecionado = mensagens[indexMensagem];
+        if (linha) {
+            adicionarRemoverClasse(linha, "varredura", true, 0);
 
-        if (elementoSelecionado) {
-            adicionarRemoverClasse(elementoSelecionado, "varredura-mensagem", true, 0);
+            adicionarRemoverClasse(linha, "varredura", false, 2500);
 
-            adicionarRemoverClasse(elementoSelecionado, "varredura-mensagem", false, 2500);
-
-            indexMensagem++;
+            indexLinha++;
         } else {
-            indexMensagem = 0;
-        }
-
-        if (elementoSelecionado === mensagens[mensagens.length - 1]) {
-            clearInterval(intervalIdMensagem);  
-            varredura();
+            indexLinha = 0;
         }
     }, 3000);
-  
-    intervalIds.push(intervalIdMensagem);
+    
+    intervalIds.push(intervalIdLinha);
 }
 
 function atualizarConteudoTecladoAlternativo() {
@@ -92,7 +118,6 @@ function atualizarConteudoTecladoAlternativo() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("quadro").innerHTML = this.responseText;
-            // document.body.innerHTML = this.responseText;
         }
     };
     xhttp.open("GET", "vontades.html", false);
@@ -102,12 +127,15 @@ function atualizarConteudoTecladoAlternativo() {
 varredura();
 
 document.addEventListener('click', function (event) {
-
+    alert("Teste")
     stopAllIntervals();
     const audio = document.getElementById('som');
     audio.play();
 
     const elementoEscolhido = document.querySelector(".varredura-mensagem")
+    const elementosmensagens = document.querySelectorAll(".mensagem");
+
+    // adicionarOpacidade(elementosmensagens);
 
     if (elementoEscolhido) {
         // const texto = elementoEscolhido.querySelector("p").textContent;
@@ -115,12 +143,9 @@ document.addEventListener('click', function (event) {
         // const idElemento = elementoSelecionado.querySelector("")
         if (elementoEscolhido.id === "mensagem-2") {
             atualizarConteudoTecladoAlternativo();
-            varredura();
         }        
-        // varredura();
-        varreduraMensagens(elementoSelecionado);
+        varredura();
     } else {
         varredura();
     }
-    
 });
